@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a3d52">
+<meta name="color-scheme" content="light dark">
+<title>Lamaa — لمعة</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+:root{--bg:#f3f8fa;--sf:#fff;--ink:#0b2a36;--mu:#4f6b77;--ln:#d3e2e8;--deep:#0a3d52;--aq:#17b3c9;--sun:#ffc531;--red:#e5483c;--ok:#16915a;--sh:0 10px 30px rgba(10,61,82,.12);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#071a22;--sf:#0e2a36;--ink:#e8f4f8;--mu:#9bb8c4;--ln:#1d4152;--aq:#3cd0e4;--sh:0 10px 30px rgba(0,0,0,.4)}}
+:root[data-theme="dark"]{--bg:#071a22;--sf:#0e2a36;--ink:#e8f4f8;--mu:#9bb8c4;--ln:#1d4152;--aq:#3cd0e4}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Cairo",Tahoma,Arial,sans-serif;line-height:1.7;-webkit-tap-highlight-color:transparent}
+.wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--sf);border-bottom:1px solid var(--ln)}
+.nav{display:flex;align-items:center;justify-content:space-between;min-height:60px;gap:10px}
+.logo{font-weight:900;font-size:1.4rem;color:var(--aq);text-decoration:none}
+.nav div{display:flex;gap:8px;align-items:center}
+.nav a.c,.lang{min-height:42px;display:inline-flex;align-items:center;background:var(--sun);color:#3a2a00;padding:0 16px;border-radius:999px;font:inherit;font-weight:800;text-decoration:none;border:0;cursor:pointer}
+.lang{background:transparent;color:var(--ink);border:2px solid var(--ln)}
+.hero{background:linear-gradient(160deg,#0a3d52,#0d6a85);color:#fff;padding:44px 0 56px}
+.hero h1{font-size:clamp(2rem,6vw,3.5rem);line-height:1.15;margin:0 0 12px;font-weight:900;white-space:pre-line}
+.hero p{font-size:1.1rem;margin:0 0 20px;color:#d4eef5;max-width:40ch}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;border:0;cursor:pointer;font:inherit;font-weight:800;padding:0 22px;border-radius:12px;background:var(--sun);color:#3a2a00;text-decoration:none}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.pill{display:inline-block;background:rgba(255,255,255,.14);padding:2px 14px;border-radius:999px;margin:14px 6px 0 0;font-weight:600}
+:focus-visible{outline:3px solid var(--aq);outline-offset:2px}
+section{padding:40px 0}
+h2{font-size:clamp(1.5rem,4vw,2.1rem);margin:0 0 6px;font-weight:900}
+.sub{color:var(--mu);margin:0 0 20px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.svc{background:var(--bg);border:1px solid var(--ln);border-radius:16px;padding:18px}
+.svc .p{font-size:1.7rem;font-weight:900;color:var(--aq)}.svc small{color:var(--mu);display:block}
+.svc.pl{border:2px solid var(--aq)}
+#book{background:var(--sf);border-block:1px solid var(--ln)}
+.book{display:grid;grid-template-columns:1.5fr 1fr;gap:24px;align-items:start}
+fieldset{border:0;padding:0;margin:0 0 22px;min-width:0}
+legend{font-weight:800;font-size:1.1rem;margin-bottom:8px;padding:0}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.opt{position:relative;border:2px solid var(--ln);border-radius:14px;padding:10px 14px;cursor:pointer;background:var(--bg);display:block;min-height:52px}
+.opt input{position:absolute;opacity:0;inset:0;cursor:pointer;margin:0;width:100%;height:100%}
+.opt:has(input:checked){border-color:var(--aq);background:color-mix(in srgb,var(--aq) 14%,var(--bg))}
+.opt b{display:block}.opt span{color:var(--mu);font-size:.88rem}
+.brc{padding:8px}
+.brc svg{width:100%;height:92px;border-radius:10px;display:block;margin-bottom:6px}
+label.f{display:block;font-weight:600;margin-bottom:10px}
+input[type=text],input[type=tel],input[type=email],input[type=date]{width:100%;min-height:46px;font:inherit;font-size:16px;padding:8px 12px;border:2px solid var(--ln);border-radius:12px;background:var(--bg);color:var(--ink);margin-top:4px;-webkit-appearance:none;appearance:none}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hid{display:none!important}
+.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:6px}
+.sl{font:inherit;font-size:.85rem;font-weight:700;min-height:44px;padding:4px 2px;border-radius:10px;border:2px solid var(--ln);background:#fff;color:#0b2a36;cursor:pointer;direction:ltr}
+.sl.busy{background:var(--red);border-color:var(--red);color:#fff}
+.sl.past{background:#e9eef0;color:#9aa8ae;cursor:not-allowed;border-color:#e9eef0}
+.sl.sel{background:var(--aq);border-color:var(--aq);color:#04242c}
+.leg{display:flex;gap:14px;font-size:.85rem;color:var(--mu);margin:8px 0 0;flex-wrap:wrap}
+.leg i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-inline-end:5px;border:2px solid var(--ln);vertical-align:-1px}
+.pbox{background:var(--bg);border:1px dashed var(--ln);border-radius:14px;padding:14px;margin-top:10px}
+.err{color:var(--red);font-weight:700;min-height:1.5em;margin:4px 0}
+.hint{background:var(--bg);border:1px dashed var(--ln);border-radius:12px;padding:12px 14px;color:var(--mu)}
+.sum{position:sticky;top:76px;background:var(--bg);border:2px solid var(--ln);border-radius:20px;padding:20px}
+.sum h3{margin:0 0 10px}
+.ln{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px solid var(--ln)}
+.tot{display:flex;justify-content:space-between;font-size:1.5rem;font-weight:900;margin:12px 0}
+.sum .btn{width:100%;background:var(--deep);color:#fff}
+.note{font-size:.85rem;color:var(--mu);margin-top:8px}
+.done{text-align:center;padding:10px}
+.ck{width:70px;height:70px;border-radius:50%;background:var(--ok);color:#fff;display:grid;place-items:center;font-size:2.2rem;margin:0 auto 10px}
+.qr{display:inline-block;background:#fff;padding:12px;border-radius:14px;margin:8px 0}
+.code{font-size:2rem;font-weight:900;letter-spacing:2px;direction:ltr}
+.acts{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:10px}
+.acts .btn{background:var(--deep);color:#fff;padding:0 18px}
+.bk{display:flex;justify-content:space-between;gap:12px;align-items:center;background:var(--sf);border:1px solid var(--ln);border-radius:14px;padding:12px 16px;margin-bottom:10px;flex-wrap:wrap}
+.bk.x{opacity:.55}
+.bk .btn{color:#fff;min-height:40px;padding:0 14px;background:var(--red)}
+.bk .btn.g{background:var(--ok)}
+.rdy{background:var(--ok);color:#fff;font-weight:800;border-radius:999px;padding:2px 12px}
+#toast{position:fixed;inset-inline:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));background:var(--deep);color:#fff;padding:14px 18px;border-radius:14px;box-shadow:var(--sh);z-index:50;font-weight:700}
+footer{background:var(--deep);color:#cfe9f0;padding:22px 0;text-align:center}
+@media (min-width:700px){.slots{grid-template-columns:repeat(6,1fr)}}
+@media (max-width:820px){.book,.g3{grid-template-columns:1fr}.sum{position:static}.r2{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{header,.hero,section:not(#book),footer,.acts{display:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav"><a class="logo" href="#top">Lamaa · لمعة</a><div><button class="lang" id="lg" type="button">EN</button><a class="c" href="#book" data-i="book"></a></div></div></header>
+<main id="top">
+<div class="hero"><div class="wrap"><h1 data-i="h1"></h1><p data-i="sub"></p><a class="btn" href="#book" data-i="book"></a><br><span class="pill" data-i="p1"></span><span class="pill" data-i="p2"></span><span class="pill" data-i="p3"></span></div></div>
+<section><div class="wrap"><h2 data-i="sv"></h2><p class="sub" data-i="sv2"></p><div class="g3" id="svcCards"></div></div></section>
+
+<section id="book"><div class="wrap">
+<h2 data-i="bk"></h2><p class="sub" data-i="bk2"></p>
+<div id="doneBox" class="hid"></div>
+<div class="book" id="formWrap">
+<div>
+<fieldset><legend data-i="lm"></legend><div class="opts" id="modes"></div>
+<div class="opts hid" id="plans" style="margin-top:10px"></div><p class="note hid" id="planNote" data-i="wk"></p></fieldset>
+<fieldset><legend data-i="l1"></legend><div class="opts" id="branches"></div><p class="note" data-i="demo"></p></fieldset>
+<fieldset id="sec-time" class="hid"><legend data-i="l2"></legend>
+<label class="f"><span id="dayL"></span><input type="date" id="date"></label>
+<div class="slots" id="slots"></div>
+<div class="leg"><span><i style="background:#fff"></i><span data-i="free"></span></span><span><i style="background:var(--red);border-color:var(--red)"></i><span data-i="busy"></span></span><span><i style="background:var(--aq);border-color:var(--aq)"></i><span data-i="sel"></span></span></div>
+<p class="note" data-i="dur"></p>
+<div class="err" id="slotMsg" role="alert"></div></fieldset>
+<fieldset><legend data-i="l3"></legend>
+<div class="opts" id="sizes"></div><p class="note" data-i="pkH"></p><div class="opts" id="pks"></div><p class="note" data-i="indH"></p><div class="opts" id="addons"></div></fieldset>
+<fieldset><legend data-i="l4"></legend>
+<div class="r2"><label class="f"><span data-i="nm"></span><input type="text" id="name" autocomplete="name"></label>
+<label class="f"><span data-i="ph"></span><input type="tel" id="phone" inputmode="numeric" placeholder="3XXXXXXX" autocomplete="tel-national"></label></div>
+<label class="f">Gmail / Email<input type="email" id="email" placeholder="name@gmail.com" autocomplete="email"></label>
+<label class="f"><span data-i="car"></span><input type="text" id="car"></label></fieldset>
+<fieldset><legend data-i="l5"></legend>
+<div class="hint" id="lock" data-i="lock"></div>
+<div id="sec-pay" class="hid">
+<div class="opts"><label class="opt"><input type="radio" name="pay" value="card" checked><b data-i="pc"></b><span>Visa / Mastercard</span></label><label class="opt"><input type="radio" name="pay" value="cash"><b data-i="pk"></b><span data-i="pk2"></span></label></div>
+<div class="pbox" id="bx-card"><label class="f">Card number<input type="text" id="cn" inputmode="numeric" maxlength="19" placeholder="0000 0000 0000 0000" autocomplete="cc-number"></label>
+<div class="r2"><label class="f">MM/YY<input type="text" id="ce" inputmode="numeric" maxlength="5" placeholder="MM/YY" autocomplete="cc-exp"></label><label class="f">CVV<input type="text" id="cc" inputmode="numeric" maxlength="3" placeholder="123" autocomplete="cc-csc"></label></div>
+<p class="note" data-i="safe"></p></div></div></fieldset>
+<div class="err" id="err" role="alert"></div>
+</div>
+<aside class="sum"><h3 data-i="sm"></h3><div id="lines"></div><div class="tot"><span data-i="tt"></span><span id="tot"></span></div><button class="btn" id="go" type="button" data-i="go" disabled></button><p class="note" data-i="rules"></p></aside>
+</div></div></section>
+
+<section><div class="wrap"><h2 data-i="my"></h2><p class="sub" data-i="my2"></p><div id="mine"></div></div></section>
+</main>
+<footer><div class="wrap">Lamaa © <span id="yr"></span></div></footer>
+<div id="toast" class="hid" role="status"></div>
+
+<script>
+(function(){
+var T={ar:{book:"احجز الحين",h1:"سيارتك تلمع،\nوانت مرتاح.",sub:"مغاسل مفتوحة 24 ساعة في الدوحة. غسلة واحدة أو اشتراك أسبوعي.",p1:"24 ساعة",p2:"5 فروع",p3:"اشتراك شهري ونص سنوي",sv:"الخدمات والأسعار",sv2:"بالريال القطري للسيارة الصغيرة، والاشتراك بخصم.",bk:"احجز وادفع",bk2:"اختار الفرع، بعدين الميعاد، وفي الآخر الدفع.",lm:"نوع الحجز",wk:"نفس الميعاد كل أسبوع. لو الميعاد محجوز في أسبوع، هننقلك لأقرب ميعاد فاضي.",l1:"1. الفرع",demo:"الفروع والصور تجريبية مؤقتًا، وهتتغير بالحقيقية.",l2:"2. اليوم والميعاد",day:"اليوم",day2:"تاريخ أول غسلة",free:"متاح",busy:"محجوز",sel:"اختيارك",dur:"الغسيل ياخذ نص ساعة. اختار ميعاد واحد بس، وبيتحجز من وقتها لنص ساعة بعدها.",l3:"3. السيارة والخدمة",l4:"4. بياناتك",nm:"الاسم",ph:"رقم الموبايل (بنرسل عليه التنبيه، 8 أرقام)",car:"موديل السيارة",l5:"5. الدفع",lock:"اختار الفرع والميعاد واكتب بياناتك، وبعدها يطلع الدفع.",pc:"كارت بنكي",pk:"كاش في المغسلة",pk2:"ادفع بعد الغسيل",safe:"للأمان، رقم الكارت والـ CVV ما ينحفظون بعد التحديث.",sm:"ملخص الطلب",tt:"الإجمالي",go:"ادفع وأكّد الحجز",rules:"تنبيه قبل الموعد بساعة، وإلغاء لحد ساعتين قبل الموعد.",my:"حجوزاتي",my2:"الحجوزات المحفوظة على جهازك.",none:"ما فيه حجوزات لسا.",cur:"ر.ق",min:"30 دقيقة",one:"غسلة واحدة",sb:"اشتراك",m1:"اشتراك شهر",m1d:"4 غسلات، مرة كل أسبوع، خصم 15%",m6:"اشتراك 6 شهور",m6d:"26 غسلة، مرة كل أسبوع، خصم 25%",disc:"خصم الاشتراك",svN:{ext:"غسيل خارجي",full:"غسيل كامل",pol:"تلميع وحماية"},szN:{small:"صغيرة",big:"كبيرة"},ad:{ext:"غسيل خارجي",int:"تنظيف داخلي",pol:"تلميع وحماية",eng:"غسيل موتور",ster:"تعقيم داخلي",perf:"معطر فاخر",seat:"تنظيف مقاعد"},pkg:{none:"بدون باكيج",full:"باكيج غسيل كامل (خارجي + داخلي)",comp:"باكيج غسيل شامل (خارجي + داخلي + تلميع + موتور + تعقيم)"},pkH:"الباكيجات",indH:"الخدمات المنفردة",svc_n:"خدمات",carDone:"تم تأكيد حجزك",showQ:"وري الكود أو الـ QR للعاملين في المغسلة.",mail:"ابعت على الإيميل",sms:"ابعت على الموبايل",print:"طباعة",again:"حجز جديد",cancel:"إلغاء",cancelled:"ملغي",late:"الإلغاء متاح لحد ساعتين قبل الموعد فقط",rdy:"جاهزة",rdyBtn:"سيارتك جاهزة (للموظف)",rdyMsg:"سيارتك جاهزة خلصت غسيل، تعال استلمها",paid:"تم الدفع بالكارت",cashN:"الدفع كاش في المغسلة",more:"+ غسلات تانية في «حجوزاتي»",remind:"تنبيه: غسيلك بعد أقل من ساعة في",e_nm:"اكتب اسمك.",e_ph:"رقم الموبايل لازم يكون 8 أرقام.",e_em:"اكتب إيميل صحيح.",e_car:"اكتب موديل السيارة والرقم.",e_cn:"رقم الكارت غير صحيح.",e_ce:"تاريخ الانتهاء غير صحيح.",e_cc:"الـ CVV لازم 3 أرقام.",s_busy:"الميعاد هذا محجوز بالفعل. اختار ميعاد تاني.",s_past:"الميعاد هذا عدّى.",s_ok:"اخترت: ",s_slot:"اختار الميعاد الأول."},
+en:{book:"Book now",h1:"Your car shines.\nYou relax.",sub:"24-hour car washes in Doha. A single wash or a weekly plan.",p1:"Open 24h",p2:"5 branches",p3:"1 & 6-month plans",sv:"Services & prices",sv2:"In Qatari riyals for a small car. Plans are discounted.",bk:"Book & pay",bk2:"Pick a branch, then the slot, and pay at the end.",lm:"Booking type",wk:"Same slot every week. If it’s taken in a week, we move you to the nearest free slot.",l1:"1. Branch",demo:"Branches and pictures are temporary samples and will be replaced with real ones.",l2:"2. Day & slot",day:"Day",day2:"First wash date",free:"Free",busy:"Booked",sel:"Your pick",dur:"A wash takes 30 minutes. Pick one slot; it reserves that start time plus 30 minutes.",l3:"3. Car & service",l4:"4. Your details",nm:"Name",ph:"Mobile (we send the ready alert here, 8 digits)",car:"Car model",l5:"5. Payment",lock:"Pick a branch and slot and enter your details. Payment appears next.",pc:"Bank card",pk:"Cash at the wash",pk2:"Pay after the wash",safe:"For safety, the card number and CVV are not kept after a refresh.",sm:"Order summary",tt:"Total",go:"Pay & confirm",rules:"Reminder 1 hour before. Cancel up to 2 hours before.",my:"My bookings",my2:"Bookings saved on this device.",none:"No bookings yet.",cur:"QAR",min:"30 min",one:"Single wash",sb:"Subscription",m1:"1-month plan",m1d:"4 washes, once a week, 15% off",m6:"6-month plan",m6d:"26 washes, once a week, 25% off",disc:"Plan discount",svN:{ext:"Exterior wash",full:"Full wash",pol:"Polish & protect"},szN:{small:"Small",big:"Large"},ad:{ext:"Exterior wash",int:"Interior cleaning",pol:"Polish & protect",eng:"Engine wash",ster:"Interior sanitising",perf:"Premium scent",seat:"Seat cleaning"},pkg:{none:"No package",full:"Full package (exterior + interior)",comp:"Complete package (exterior + interior + polish + engine + sanitising)"},pkH:"Packages",indH:"Individual services",svc_n:"services",carDone:"Booking confirmed",showQ:"Show the code or QR to the staff at the wash.",mail:"Send to email",sms:"Send to mobile",print:"Print",again:"New booking",cancel:"Cancel",cancelled:"Cancelled",late:"Cancellation is only open until 2 hours before",rdy:"Ready",rdyBtn:"Car ready (staff)",rdyMsg:"Your car is ready, come pick it up",paid:"Paid by card",cashN:"Pay cash at the wash",more:"+ more washes in “My bookings”",remind:"Reminder: your wash starts within an hour at",e_nm:"Enter your name.",e_ph:"Mobile must be 8 digits.",e_em:"Enter a valid email.",e_car:"Enter car model and plate.",e_cn:"Card number is invalid.",e_ce:"Expiry date is invalid.",e_cc:"CVV must be 3 digits.",s_busy:"That slot is already booked. Pick another.",s_past:"That time has passed.",s_ok:"You picked: ",s_slot:"Pick a slot first."}};
+var BR=[["pearl","The Pearl","اللؤلؤة"],["westbay","West Bay","الخليج الغربي"],["sadd","Al Sadd","السد"],["lusail","Lusail","لوسيل"],["wakra","Al Wakrah","الوكرة"]];
+var SZ=[["small",0],["big",10]],PK=[["none",0,[]],["full",45,["ext","int"]],["comp",150,["ext","int","pol","eng","ster"]]],AD=[["ext",25],["int",30],["pol",90],["eng",15],["ster",20],["perf",10],["seat",35]],PL=[["m1",4,15],["m6",26,25]];
+var WASH=30;
+var $=function(i){return document.getElementById(i)},pad=function(n){return String(n).padStart(2,"0")};
+var lang=localStorage.getItem("lm_lang")||"ar",start=null,DR="lm_draft",BK="lm_bk";
+function t(k){return T[lang][k]}
+function load(k,d){try{return JSON.parse(localStorage.getItem(k))||d}catch(e){return d}}
+function save(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+function val(n){var e=document.querySelector("input[name="+n+"]:checked");return e?e.value:null}
+function setv(n,v){var e=document.querySelector("input[name="+n+"][value="+v+"]");if(e)e.checked=true}
+function iso(d){return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate())}
+function today(){return iso(new Date())}
+function addDays(s,n){var p=s.split("-");return iso(new Date(+p[0],+p[1]-1,+p[2]+n))}
+function fmt(m){return pad(Math.floor(m/60)%24)+":"+pad(m%60)}
+function rng(m){return fmt(m)+"–"+fmt(m+WASH)}
+function nowMin(){var d=new Date();return d.getHours()*60+d.getMinutes()}
+function BN(b){return "Lamaa — "+(lang==="ar"?b[2]:b[1])}
+function art(id){
+ var C={pearl:["#ffb36b","#ff6f91"],westbay:["#10264a","#2a4f8a"],sadd:["#8fd3ff","#e3f5ff"],lusail:["#5b3f9e","#e58fb4"],wakra:["#ffd78a","#fff0cf"]}[id],s='';
+ if(id==="pearl")s='<circle cx="118" cy="40" r="13" fill="#fff3b0"/><rect y="62" width="160" height="34" fill="#1e6fa8"/><path d="M28 62l1-30 17 30z" fill="#fff"/><path d="M58 64l1-22 13 22z" fill="#ffe0b2"/><path d="M20 64h34l-5 7H25zM52 66h28l-4 6H56z" fill="#6b3b1e"/><path d="M100 62v-14h8v14zm12 0v-22h8v22zm12 0v-10h8v10z" fill="#e9c9a8"/>';
+ if(id==="westbay")s='<path d="M20 96V50h16v46zM40 96V30h14v66zM58 96V12l7-8 7 8v84zM76 96V36h16v60zM96 96V56h14v40zM114 96V26h14v70z" fill="#0a1a38"/><path d="M27 54v40M47 34v60M65 18v76M84 40v54M103 60v34M121 30v64" stroke="#ffd966" stroke-width="7" stroke-dasharray="2 6" opacity=".85"/><circle cx="140" cy="16" r="2" fill="#fff"/><circle cx="12" cy="24" r="1.5" fill="#fff"/>';
+ if(id==="sadd")s='<path d="M0 96V58h30v38zM34 96V40h28v56zM66 96V52h24v44zM94 96V30h26v66zM124 96V60h36v36z" fill="#6f93ad"/><path d="M40 46v46M100 36v56M72 58v34" stroke="#e8f6ff" stroke-width="9" stroke-dasharray="3 7" opacity=".8"/><rect y="82" width="160" height="14" fill="#3a4a54"/><path d="M0 89h160" stroke="#fff" stroke-width="2" stroke-dasharray="8 8"/><circle cx="22" cy="20" r="9" fill="#fff6c2"/>';
+ if(id==="lusail")s='<path d="M0 78h160v18H0z" fill="#2c1f55"/><path d="M52 80L60 18l8 62zM84 80l8-62 8 62z" fill="#f6d9e6"/><path d="M60 18v62M92 18v62" stroke="#a1688f" stroke-width="2"/><path d="M110 20a9 9 0 1 0 8 14 7 7 0 1 1-8-14z" fill="#fff3b0"/>';
+ if(id==="wakra")s='<rect y="64" width="160" height="32" fill="#2a8ba8"/><path d="M0 64v-12h18v-6h14v6h12v12zM108 64V50h18v-8h12v8h22v14z" fill="#d9b277"/><path d="M52 74q28 14 56 0l-7-8H59z" fill="#7a4a21"/><path d="M80 66V28l24 36z" fill="#fff8e6"/><circle cx="130" cy="20" r="10" fill="#fff"/>';
+ return '<svg viewBox="0 0 160 96" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="g'+id+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+C[0]+'"/><stop offset="1" stop-color="'+C[1]+'"/></linearGradient></defs><rect width="160" height="96" fill="url(#g'+id+')"/>'+s+'</svg>';
+}
+function radios(el,name,items,lab,cls){el.innerHTML=items.map(function(x){var l=lab(x);return '<label class="opt '+(cls||"")+'">'+(l[2]||"")+'<input type="radio" name="'+name+'" value="'+x[0]+'"><b>'+l[0]+'</b><span>'+l[1]+'</span></label>'}).join("")}
+function build(){
+ var d=load(DR,{});
+ radios($("modes"),"mode",[["one"],["sub"]],function(x){return [t(x[0]==="one"?"one":"sb"),""]});
+ radios($("plans"),"plan",PL,function(x){return [t(x[0]),t(x[0]+"d")]});
+ radios($("branches"),"br",BR,function(x){return [BN(x),(lang==="ar"?"الدوحة · ":"Doha · ")+"24h",art(x[0])]},"brc");
+ radios($("sizes"),"size",SZ,function(x){return [t("szN")[x[0]],x[1]?"+"+x[1]+" "+t("cur"):"—"]});
+ radios($("pks"),"pk",PK,function(x){return [t("pkg")[x[0]],x[1]+" "+t("cur")]});
+ $("addons").innerHTML=AD.map(function(x){return '<label class="opt"><input type="checkbox" name="add" value="'+x[0]+'"><b>'+t("ad")[x[0]]+'</b><span>'+x[1]+" "+t("cur")+'</span></label>'}).join("");
+ $("svcCards").innerHTML=PK.slice(1).map(function(x){return '<div class="svc"><b>'+t("pkg")[x[0]]+'</b><div class="p">'+x[1]+" "+t("cur")+'</div><small>'+x[2].length+" "+t("svc_n")+'</small></div>'}).join("")+PL.map(function(p){return '<div class="svc pl"><b>'+t(p[0])+'</b><div class="p">−'+p[2]+'%</div><small>'+t(p[0]+"d")+'</small></div>'}).join("");
+ setv("br",d.br||"pearl");setv("mode",d.mode||"one");setv("plan",d.plan||"m1");setv("size",d.size==="big"?"big":"small");setv("pk",d.pk||"none");
+ (d.add||[]).forEach(function(a){var e=document.querySelector("input[name=add][value="+a+"]");if(e)e.checked=true});
+}
+function applyLang(){
+ document.documentElement.lang=lang;document.documentElement.dir=lang==="ar"?"rtl":"ltr";
+ document.querySelectorAll("[data-i]").forEach(function(e){e.textContent=t(e.dataset.i)});
+ $("lg").textContent=lang==="ar"?"EN":"عربي";$("name").placeholder=lang==="ar"?"الاسم الكامل":"Full name";
+}
+function seed(b,d){var h=0,s=b+d;for(var i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))>>>0;var k=h%48;return [k*30,((k+5)%48)*30,((k+11)%48)*30]}
+function bookings(){return load(BK,[])}
+function busySet(b,d){var s=seed(b,d);bookings().forEach(function(k){if(!k.x&&k.br===b&&k.date===d)s.push(k.start)});return s}
+function okAt(bs,m,d){if(m<0||m>=1440)return false;if(d===today()&&m<=nowMin())return false;return bs.indexOf(m)===-1}
+function findFree(b,d,pref){var bs=busySet(b,d);for(var o=0;o<48;o++){var a=pref+o*30,c=pref-o*30;if(okAt(bs,a,d))return a;if(o&&okAt(bs,c,d))return c}return null}
+function renderSlots(){
+ var b=val("br");if(!b)return;
+ var d=$("date").value,bs=busySet(b,d),isT=d===today(),now=nowMin(),out="";
+ for(var m=0;m<1440;m+=30){
+  var c="sl";if(isT&&m<=now)c+=" past";else if(bs.indexOf(m)>-1)c+=" busy";
+  if(start===m)c+=" sel";
+  out+='<button type="button" class="'+c+'" data-h="'+m+'">'+rng(m)+"</button>";
+ }
+ $("slots").innerHTML=out;
+}
+function pick(m){
+ var b=val("br"),d=$("date").value,bs=busySet(b,d),msg=$("slotMsg");msg.style.color="var(--red)";
+ if(d===today()&&m<=nowMin()){msg.textContent=t("s_past");return}
+ if(bs.indexOf(m)>-1){msg.textContent=t("s_busy");return}
+ start=m;msg.style.color="var(--ok)";msg.textContent=t("s_ok")+rng(m);
+ renderSlots();update();
+}
+function perVisit(){
+ var pk=PK.filter(function(x){return x[0]===val("pk")})[0],sz=SZ.filter(function(x){return x[0]===val("size")})[0],L=[],s=0,cov=pk[2];
+ if(pk[0]!=="none"){L.push([t("pkg")[pk[0]],pk[1]]);s+=pk[1]}
+ if(sz&&sz[1]){L.push([t("szN")[sz[0]],sz[1]]);s+=sz[1]}
+ document.querySelectorAll("input[name=add]:checked").forEach(function(c){if(cov.indexOf(c.value)>-1)return;var a=AD.filter(function(x){return x[0]===c.value})[0];L.push([t("ad")[a[0]],a[1]]);s+=a[1]});
+ return {L:L,s:s};
+}
+function plan(){return val("mode")==="sub"?PL.filter(function(p){return p[0]===val("plan")})[0]:null}
+function calc(){
+ var v=perVisit(),L=v.L,tot=v.s,p=plan(),b=BR.filter(function(x){return x[0]===val("br")})[0];
+ if(b)L.unshift([BN(b),null]);
+ if(p){L.unshift([t(p[0])+" · "+p[1]+"×",null]);tot=Math.round(v.s*p[1]*(1-p[2]/100));L.push([t("disc"),"−"+p[2]+"%"])}
+ if(start!==null)L.push([$("date").value+" · "+rng(start),null]);
+ $("lines").innerHTML=L.map(function(l){return '<div class="ln"><span>'+l[0]+"</span><span>"+(l[1]===null?"":(typeof l[1]==="number"?l[1]+" "+t("cur"):l[1]))+"</span></div>"}).join("");
+ $("tot").textContent=tot+" "+t("cur");return tot;
+}
+function detailsOk(){return $("name").value.trim().length>1&&/^[3567]\d{7}$/.test($("phone").value.trim())&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($("email").value.trim())&&$("car").value.trim().length>2}
+function covUpdate(){
+ var pk=PK.filter(function(x){return x[0]===val("pk")})[0],cov=pk?pk[2]:[];
+ document.querySelectorAll("input[name=add]").forEach(function(c){var on=cov.indexOf(c.value)>-1;if(on)c.checked=false;c.disabled=on;c.closest("label").style.opacity=on?".45":"1"});
+}
+function update(){ covUpdate();
+ var br=val("br"),sub=!!plan();
+ $("sec-time").classList.remove("hid");$("plans").classList.toggle("hid",!sub);$("planNote").classList.toggle("hid",!sub);
+ $("dayL").textContent=t(sub?"day2":"day");
+ var rdy=!!br&&start!==null&&detailsOk();
+ $("sec-pay").classList.toggle("hid",!rdy);$("lock").classList.toggle("hid",rdy);$("go").disabled=!rdy;
+ $("bx-card").classList.toggle("hid",val("pay")!=="card");
+ calc();persist();
+}
+function persist(){
+ var ad=[];document.querySelectorAll("input[name=add]:checked").forEach(function(c){ad.push(c.value)});
+ save(DR,{br:val("br"),mode:val("mode"),plan:val("plan"),size:val("size"),pk:val("pk"),add:ad,date:$("date").value,start:start,name:$("name").value,phone:$("phone").value,email:$("email").value,car:$("car").value,pay:val("pay"),ce:$("ce").value});
+}
+function restore(){
+ var d=load(DR,{});["name","phone","email","car","ce"].forEach(function(k){if(d[k])$(k).value=d[k]});
+ $("date").min=today();$("date").value=(d.date&&d.date>=today())?d.date:today();
+ if(d.pay)setv("pay",d.pay);start=(typeof d.start==="number"&&d.date===$("date").value)?d.start:null;
+}
+function luhn(s){var u=0,a=false;for(var i=s.length-1;i>=0;i--){var n=+s[i];if(a){n*=2;if(n>9)n-=9}u+=n;a=!a}return u%10===0}
+function fail(k,id){$("err").textContent=t(k);$(id).focus();return false}
+function validPay(){
+ $("err").textContent="";if(val("pay")!=="card")return true;
+ var n=$("cn").value.replace(/\s/g,"");if(n.length!==16||!luhn(n))return fail("e_cn","cn");
+ var m=$("ce").value.match(/^(\d{2})\/(\d{2})$/);if(!m||+m[1]<1||+m[1]>12||new Date(2000+ +m[2],+m[1],1)<=new Date())return fail("e_ce","ce");
+ if(!/^\d{3}$/.test($("cc").value))return fail("e_cc","cc");
+ return true;
+}
+function toast(m){var e=$("toast");e.textContent=m;e.classList.remove("hid");setTimeout(function(){e.classList.add("hid")},9000)}
+function when(k){var h=Math.floor(k.start/60),mm=k.start%60;return new Date(k.date+"T"+pad(h)+":"+pad(mm)+":00")}
+function notifyOS(m){try{if("Notification" in window&&Notification.permission==="granted")new Notification("Lamaa",{body:m})}catch(e){}}
+function confirmBk(){
+ if(!validPay())return;
+ var b=val("br"),d0=$("date").value;
+ if(!okAt(busySet(b,d0),start,d0)){start=null;renderSlots();update();$("slotMsg").textContent=t("s_busy");return}
+ var p=plan(),cnt=p?p[1]:1,total=calc(),id="LM"+Math.floor(100000+Math.random()*900000),all=bookings(),vis=[];
+ for(var i=0;i<cnt;i++){
+  var d=addDays(d0,7*i),h=i===0?start:findFree(b,d,start);if(h===null)continue;
+  var k={uid:id+"-"+(i+1),id:id,br:b,date:d,start:h,dur:WASH,total:total,name:$("name").value.trim(),phone:$("phone").value.trim(),email:$("email").value.trim(),car:$("car").value.trim(),pay:val("pay"),plan:p?p[0]:"",r:false,x:false,ready:false};
+  all.push(k);vis.push(k);
+ }
+ save(BK,all);start=null;$("cn").value="";$("cc").value="";update();
+ showDone(vis,total);renderMine();
+ if("Notification" in window&&Notification.permission==="default")Notification.requestPermission();
+}
+function showDone(vis,total){
+ var k=vis[0],b=BR.filter(function(x){return x[0]===k.br})[0],pn=k.pay==="card"?t("paid"):t("cashN");
+ var q="LAMAA|"+k.id+"|"+k.br+"|"+k.date+"|"+fmt(k.start)+"|"+vis.length+"|"+k.phone;
+ var rows=vis.slice(0,5).map(function(v){return v.date+" · "+rng(v.start)}).join("<br>")+(vis.length>5?"<br>"+t("more"):"");
+ var msg="Lamaa — "+k.id+"\n"+BN(b)+"\n"+vis.slice(0,5).map(function(v){return v.date+" "+rng(v.start)}).join("\n")+"\n"+total+" QAR";
+ $("formWrap").classList.add("hid");var D=$("doneBox");D.classList.remove("hid");
+ D.innerHTML='<div class="done"><div class="ck" aria-hidden="true">✓</div><h2>'+t("carDone")+'</h2><p>'+BN(b)+"<br>"+rows+'</p><div class="code">'+k.id+'</div><div class="qr" id="qrBox"></div><p>'+t("showQ")+"</p><p>"+pn+" — "+total+" "+t("cur")+'</p><div class="acts"><a class="btn" href="mailto:'+encodeURIComponent(k.email)+"?subject="+encodeURIComponent("Lamaa "+k.id)+"&body="+encodeURIComponent(msg)+'">'+t("mail")+'</a><a class="btn" href="sms:+974'+k.phone+"?body="+encodeURIComponent(msg)+'">'+t("sms")+'</a><button class="btn" id="pr" type="button">'+t("print")+'</button><button class="btn" id="again" type="button">'+t("again")+"</button></div></div>";
+ try{new QRCode($("qrBox"),{text:q,width:170,height:170})}catch(e){}
+ $("pr").onclick=function(){window.print()};
+ $("again").onclick=function(){D.classList.add("hid");$("formWrap").classList.remove("hid");renderSlots();update()};
+ $("book").scrollIntoView();
+}
+function renderMine(){
+ var bs=bookings().slice().reverse(),now=new Date();
+ $("mine").innerHTML=bs.length?bs.map(function(k){
+  var b=BR.filter(function(x){return x[0]===k.br})[0],can=!k.x&&!k.ready&&(when(k)-now)>=2*3600e3;
+  var right=k.x?"<span>"+t("cancelled")+"</span>":(k.ready?'<span class="rdy">'+t("rdy")+"</span>":(can?'<button class="btn" data-c="'+k.uid+'" type="button">'+t("cancel")+"</button>":'<small class="note">'+t("late")+"</small>"));
+  var staff=(!k.x&&!k.ready)?'<button class="btn g" data-r="'+k.uid+'" type="button">'+t("rdyBtn")+"</button>":"";
+  return '<div class="bk'+(k.x?" x":"")+'"><div><b dir="ltr">'+k.id+"</b>"+(k.plan?" · "+t(k.plan):"")+" · "+BN(b)+"<br>"+k.date+" · "+rng(k.start)+' · <span dir="ltr">'+k.phone+"</span></div><div style=\"display:flex;gap:8px;flex-wrap:wrap;align-items:center\">"+staff+right+"</div></div>";
+ }).join(""):'<p class="note">'+t("none")+"</p>";
+}
+function markReady(uid){
+ var bs=bookings(),hit=null;bs.forEach(function(k){if(k.uid===uid&&!k.x&&!k.ready){k.ready=true;k.readyAt=Date.now();hit=k}});
+ if(!hit)return;save(BK,bs);
+ var m=t("rdyMsg");toast(m);notifyOS(m);
+ try{window.location.href="sms:+974"+hit.phone+"?body="+encodeURIComponent("Lamaa: "+m+" ("+hit.id+")")}catch(e){}
+ renderMine();
+}
+function tick(){
+ var bs=bookings(),now=new Date(),ch=false;
+ bs.forEach(function(k){if(k.x)return;var df=when(k)-now;
+  if(!k.r&&df>0&&df<=3600e3){k.r=true;ch=true;var m=t("remind")+" "+BN(BR.filter(function(x){return x[0]===k.br})[0])+" ("+rng(k.start)+")";toast(m);notifyOS(m)}
+ });
+ if(ch)save(BK,bs);renderMine();
+}
+document.addEventListener("click",function(e){
+ var s=e.target.closest(".sl");if(s){pick(+s.dataset.h);return}
+ var r=e.target.closest("[data-r]");if(r){markReady(r.dataset.r);return}
+ var c=e.target.closest("[data-c]");if(c){var bs=bookings();bs.forEach(function(k){if(k.uid===c.dataset.c&&!k.ready&&(when(k)-new Date())>=2*3600e3)k.x=true});save(BK,bs);renderMine();renderSlots()}
+});
+document.addEventListener("change",function(e){
+ var n=e.target.name;
+ if(n==="svc"||n==="br"||e.target.id==="date"){start=null;$("slotMsg").textContent=""}
+ if(n==="br"){$("sec-time").scrollIntoView({behavior:"smooth",block:"nearest"})}
+ renderSlots();update();
+});
+document.addEventListener("input",function(e){if(e.target.closest("#formWrap"))update()});
+$("cn").addEventListener("input",function(){var v=this.value.replace(/\D/g,"").slice(0,16);this.value=v.replace(/(.{4})/g,"$1 ").trim()});
+$("ce").addEventListener("input",function(){var v=this.value.replace(/\D/g,"").slice(0,4);this.value=v.length>2?v.slice(0,2)+"/"+v.slice(2):v});
+$("go").addEventListener("click",confirmBk);
+$("lg").addEventListener("click",function(){lang=lang==="ar"?"en":"ar";try{localStorage.setItem("lm_lang",lang)}catch(e){}persist();build();applyLang();renderSlots();update();renderMine();if(!$("doneBox").classList.contains("hid")){$("doneBox").classList.add("hid");$("formWrap").classList.remove("hid")}});
+$("yr").textContent=new Date().getFullYear();
+build();restore();applyLang();renderSlots();update();renderMine();tick();setInterval(tick,30000);
+})();
+</script>
+</body>
+</html>
